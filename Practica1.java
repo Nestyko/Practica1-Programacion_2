@@ -2,7 +2,7 @@ public class Practica1{
 	public static void main(String args[]){
 		boolean exit;
 		byte resp;
-		int[][] matrix = {
+		int[][] matriz = {
              {2000,4000,3000,2500,5000},
              {2000,3000,2000,2500,4500},
              {1200,5000,3200,4000,3000},
@@ -26,13 +26,18 @@ public class Practica1{
 		switch(selec){
 		case 1:
 			System.out.println("1.- Ingresar nuevos datos a la Matriz");
-			int[][] matriz = new int[4][5];
 			fillMatrix(matriz);
+			break;
 		case 2:
+			System.out.println("2.- Mostrar el numero de personas incritas en el mes");
+			System.out.println("\nTotal = " + totalMatrixSum(matriz));
+			break;
+		case 3:
 			
 
 		default:
 			System.out.println("Seleccion incorrecta");
+			break;
 
 		}//switch
 		System.out.print("\n\nSi desea volver al menu presione 1 y luego Enter: ");
@@ -51,8 +56,18 @@ public static void initializeVector(int vector[]){
 		vector[i] = 0;
 	}//for (i)
 }//inicializeVector
+//Coloca todos los valores del vector en 0
 
-public static int 
+public static int totalMatrixSum(int matrix[][]){
+	int sum = 0;
+	for(int i = 0;i < 4;i++){
+		for(int j = 0;j < 5;j++){
+		sum += matrix[i][j];
+		}//for (j)
+	}//for (i)
+	return sum;
+}//totalMatrixSum
+//Retorna el valor de la suma de cada elemento de la matriz
 
 
 public static void fillMatrix(int matrix[][]){
@@ -63,10 +78,12 @@ public static void fillMatrix(int matrix[][]){
 		}//for (j)
 	}//for (i)
 }//fillMatrix - refinar!!
+//Permite al usuario introducir cada elemento de la matriz uno a uno
 
 public static void cls(){
 	System.out.println("\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n");
 }//cls
+//Inserta 30 lineas nuevas de modo que simule que limpia la pantalla
 
 }//class
 
