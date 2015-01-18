@@ -41,6 +41,9 @@ public class Practica1{
 			System.out.println("Semana " + i + ": " + semanaSum[i] + "\n");
 			}//for (i)
 			break;
+		case 4:
+			System.out.println("4.- Mostrar el dia mas efectivo \n");
+			
 
 		default:
 			System.out.println("Seleccion incorrecta");
