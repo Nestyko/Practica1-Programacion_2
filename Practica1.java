@@ -33,7 +33,14 @@ public class Practica1{
 			System.out.println("\nTotal = " + totalMatrixSum(matriz));
 			break;
 		case 3:
-			
+			System.out.println("3.- Mostrar el numero de personas inscritas en cada semana \n");
+			int[] semanaSum = new int[4];
+			initializeVector(semanaSum);
+			rowSum(matriz,semanaSum);
+			for(int i = 0;i<4;i++){
+			System.out.println("Semana " + i + ": " + semanaSum[i] + "\n");
+			}//for (i)
+			break;
 
 		default:
 			System.out.println("Seleccion incorrecta");
@@ -84,6 +91,14 @@ public static void cls(){
 	System.out.println("\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n");
 }//cls
 //Inserta 30 lineas nuevas de modo que simule que limpia la pantalla
+
+public static void rowSum(int matrix[][], int[] vector){
+	for(int i = 0;i < 4;i++){
+		for(int j = 0;j < 5;j++){
+		vector[i] = matrix[i][j];
+		}//for (j)
+	}//for (i)
+}//rowSum
 
 }//class
 
