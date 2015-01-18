@@ -1,3 +1,5 @@
+//import java.util.Vector;
+
 public class Practica1{
 	public static void main(String args[]){
 		boolean exit;
@@ -8,7 +10,7 @@ public class Practica1{
              {1200,5000,3200,4000,3000},
              {3000,2500,7000,2000,2550}
              };
-		String[] dias = {"Lunes", "Martes", "Miercoles", "Jueves", "Viernes", "Sabado", "Domingo"};
+		final String[] DIAS = {"Lunes", "Martes", "Miercoles", "Jueves", "Viernes", "Sabado", "Domingo"};
 		byte selec;
 		do{
 		cls();
@@ -44,6 +46,11 @@ public class Practica1{
 			break;
 		case 4:
 			System.out.println("4.- Mostrar el dia mas efectivo \n");
+			int[] diaSum = new int[5];
+			columnSum(matriz,diaSum);
+			System.out.println("El Dia mas efectivo es el " + DIAS[highestPos(diaSum)] +
+			"\nCon un total de " + diaSum[highestPos(diaSum)] + " inscripciones en el mes");
+			break;
 			
 			
 
@@ -64,7 +71,7 @@ public class Practica1{
 	}//main
 
 public static void initializeVector(int vector[]){
-	for(int i = 0;i < 4;i++){
+	for(int i = 0;i < vector.length;i++){
 		vector[i] = 0;
 	}//for (i)
 }//inicializeVector
@@ -97,6 +104,16 @@ public static void cls(){
 }//cls
 //Inserta 30 lineas nuevas de modo que simule que limpia la pantalla
 
+public static void columnSum(int matrix[][], int[] vector){
+	for(int i = 0;i < 4;i++){
+		for(int j = 0;j < 5;j++){
+		vector[j] = matrix[i][j];
+		}//for (j)
+	}//for (i)
+}//columnSum
+//Sumatoria de columnas
+
+
 public static void rowSum(int matrix[][], int[] vector){
 	for(int i = 0;i < 4;i++){
 		for(int j = 0;j < 5;j++){
@@ -104,6 +121,18 @@ public static void rowSum(int matrix[][], int[] vector){
 		}//for (j)
 	}//for (i)
 }//rowSum
+//Sumatoria de filas
+
+public static short highestPos(int[] vector){
+	short aux = 0;
+	for(short i = 1;i < (vector.length)-1; i++){
+		if(vector[aux] < vector[i] ){
+			aux = i;
+		}//if
+	}//for (i)
+	return aux;
+}//highestPos
+//returns La posicion que contiene el mayor valor del vector
 
 }//class
 
