@@ -8,6 +8,7 @@ public class Practica1{
              {1200,5000,3200,4000,3000},
              {3000,2500,7000,2000,2550}
              };
+		String[] dias = {"Lunes", "Martes", "Miercoles", "Jueves", "Viernes", "Sabado", "Domingo"};
 		byte selec;
 		do{
 		cls();
@@ -43,6 +44,7 @@ public class Practica1{
 			break;
 		case 4:
 			System.out.println("4.- Mostrar el dia mas efectivo \n");
+			
 			
 
 		default:
