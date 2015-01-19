@@ -4,8 +4,7 @@ public class Practica1{
 	public static void main(String args[]){
 		boolean exit = true;
 		boolean jump = false;
-		String resp;
-		byte resp2;
+		byte resp;
 		int[][] matriz = {
              {2000,4000,3000,2500,5000},
              {2000,3000,2000,2500,4500},
@@ -63,10 +62,10 @@ public class Practica1{
 
 		}//switch
 		if(!jump){
-		System.out.print("\n\nSi desea volver al menu presione 1 y luego Enter: ");
-		resp = KbInput.read();
-		resp2 = Byte.parseByte(resp);
-		if (resp2 == 1){
+		System.out.print("\n\nSi desea volver al menu presione 1 y luego Enter");
+		System.out.println("\nDe lo Contrario Presione otro numero: ");
+		resp = Byte.parseByte(KbInput.read());
+		if (resp == 1){
 			exit = true;
 		}//end if
 		else {
