@@ -11,6 +11,7 @@ public class Practica1{
              {1200,5000,3200,4000,3000},
              {3000,2500,7000,2000,2550}
              };
+
 		final String[] DIAS = {"Lunes", "Martes", "Miercoles", "Jueves", "Viernes", "Sabado", "Domingo"};
 		byte selec;
 		do{
@@ -30,7 +31,7 @@ public class Practica1{
 		switch(selec){
 		case 1:
 			System.out.println("1.- Ingresar nuevos datos a la Matriz");
-			fillMatrix(matriz);
+			fillMatrix(matriz, DIAS);
 			jump = true;
 			break;
 		case 2:
@@ -95,14 +96,19 @@ public static int totalMatrixSum(int matrix[][]){
 //Retorna el valor de la suma de cada elemento de la matriz
 
 
-public static void fillMatrix(int matrix[][]){
+public static void fillMatrix(int matrix[][], String[] DIAS){
 	for(int i = 0;i < 4;i++){
+	System.out.println("Semana " + (i+1) + ": ");
+	endl(1);
 		for(int j = 0;j < 5;j++){
-		System.out.print("\nElement[" + i +"][" + j + "] = ");
+		System.out.print(DIAS[j]+"= ");
+		//System.out.print("\nElement[" + i +"][" + j + "] = ");
 		matrix[i][j] = Integer.parseInt(KbInput.read());
+		endl(1);
 		}//for (j)
+	endl(1);
 	}//for (i)
-}//fillMatrix - refinar!!
+}//fillMatrix
 //Permite al usuario introducir cada elemento de la matriz uno a uno
 
 public static void cls(){
@@ -139,6 +145,15 @@ public static short highestPos(int[] vector){
 	return aux;
 }//highestPos
 //returns La posicion que contiene el mayor valor del vector
+
+public static void endl(int cant){
+	if(cant >= 0){
+	for(int i = 0; i < cant; i++){
+		System.out.print("\n");
+	}//for (i)
+	}//end if
+}//endl
+//Agrega tantas lineas vacias como lo indique <cant>
 
 }//class
 
