@@ -11,16 +11,13 @@ public class Practica1{
              {1200,5000,3200,4000,3000},
              {3000,2500,7000,2000,2550}
              };
-		int[][] matriz = new int[4][5];
+		int matriz[][] = MATRIZ_ORIGINAL;
 
 		final String[] DIAS = {"Lunes", "Martes", "Miercoles", "Jueves", "Viernes", "Sabado", "Domingo"};
 		final String[] DIAS_INI = {"LUN", "MAR" , "MIE", "JUE", "VIE" , "SAB" , "DOM"};
 		byte selec;
 		do{
 		cls();
-		for(int i = 0; i<4;i++){
-			for(int j = 0;j<5;j++){
-				matriz[i][j] = 0;}}
 		System.out.println("----------------------------------------------------");
 		System.out.println("Practica 1 hecha en Java por Nestor Luis Tobon");
 		System.out.println("Seleccione alguna opcion");
@@ -67,13 +64,11 @@ public class Practica1{
 			printMatrix(matriz, DIAS_INI);
 			break;
 		case 6:
-			/*for(int i = 0;i<4;i++){
+			for(int i = 0;i<4;i++){
 				for(int j = 0;j<5;j++){
 					matriz[i][j] = MATRIZ_ORIGINAL[i][j];
 				}//end for(j)
-			}//end for(i)*/
-				
-			matriz = MATRIZ_ORIGINAL;
+			}//end for(i)
 			
 			System.out.println("6.- Tabla por defecto cargada exitosamente");
 			break;
@@ -195,16 +190,16 @@ public static void printMatrix(int[][] matrix, String[] DIAS_INI){
 
 
 /* El Consejo Nacional Electoral, organismo  encargado  de realizar los procesos
-   electorales a nivel nacional, requiere conocer cierta información estadística
-   del mes de mayo, respecto  al  número  de  inscritos. Dicho  organismo  desea
+   electorales a nivel nacional, requiere conocer cierta informaciÃ³n estadÃ­stica
+   del mes de mayo, respecto  al  nÃºmero  de  inscritos. Dicho  organismo  desea
    cuantificar:
-   => El número de personas inscritas en el mes
-   => El número de personas inscritas cada una de las semanas del mes.
-   => Y por último desea determinar cuál de los días de inscripción resulta  más
+   => El nÃºmero de personas inscritas en el mes
+   => El nÃºmero de personas inscritas cada una de las semanas del mes.
+   => Y por Ãºltimo desea determinar cuÃ¡l de los dÃ­as de inscripciÃ³n resulta  mÃ¡s
       efectivo, es decir, reporta mayor cantidad de inscritos
    => Los datos suministrados son:
 
-     	LUNES	MARTES	MIÉRCOLES	JUEVES	VIERNES
+     	LUNES	MARTES	MIÃ‰RCOLES	JUEVES	VIERNES
    1	2000	4000		3000	 2500	 5000
    2	2000	3000		2000	 2500	 4500
    3	1200	5000		3200	 4000	 3000
