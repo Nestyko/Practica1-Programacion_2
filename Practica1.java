@@ -5,14 +5,16 @@ public class Practica1{
 		boolean exit = true;
 		boolean jump = false;
 		byte resp;
-		int[][] matriz = {
+		final int[][] MATRIZ_ORIGINAL = {
              {2000,4000,3000,2500,5000},
              {2000,3000,2000,2500,4500},
              {1200,5000,3200,4000,3000},
              {3000,2500,7000,2000,2550}
              };
+		int matriz[][] = MATRIZ_ORIGINAL;
 
 		final String[] DIAS = {"Lunes", "Martes", "Miercoles", "Jueves", "Viernes", "Sabado", "Domingo"};
+		final String[] DIAS_INI = {"LUN", "MAR" , "MIE", "JUE", "VIE" , "SAB" , "DOM"};
 		byte selec;
 		do{
 		cls();
@@ -23,7 +25,8 @@ public class Practica1{
 		System.out.println("2.- Mostrar el numero de personas incritas en el mes");
 		System.out.println("3.- Mostrar el numero de personas inscritas en cada semana");
 		System.out.println("4.- Mostrar el dia mas efectivo");
-		System.out.println("5.- Mostrar tabla por defecto");
+		System.out.println("5.- Mostrar tabla actual");
+		System.out.println("6.- Cargar la tabla por defecto");
 		System.out.println("NOTA: Se utilizara la tabla por defecto si no se ingresan datos nuevos(opcion 1)");
 		System.out.print("Seleccion: ");
 		selec = Byte.parseByte(KbInput.read());
@@ -55,7 +58,20 @@ public class Practica1{
 			"\nCon un total de " + diaSum[highestPos(diaSum)] + " inscripciones en el mes");
 			break;
 			
+		case 5:
+			System.out.println("5.- Mostrar tabla actual");
+			endl(1);
+			printMatrix(matriz, DIAS_INI);
+			break;
+		case 6:
+			for(int i = 0;i<4;i++){
+				for(int j = 0;j<5;j++){
+					matriz[i][j] = MATRIZ_ORIGINAL[i][j];
+				}//end for(j)
+			}//end for(i)
 			
+			System.out.println("6.- Tabla por defecto cargada exitosamente");
+			break;
 
 		default:
 			System.out.println("Seleccion incorrecta");
@@ -155,20 +171,35 @@ public static void endl(int cant){
 }//endl
 //Agrega tantas lineas vacias como lo indique <cant>
 
+public static void printMatrix(int[][] matrix, String[] DIAS_INI){
+	System.out.print("          ");
+	for(int i = 0;i<5;i++){
+		System.out.print(DIAS_INI[i] + "\t");
+	}//for(i)
+	endl(1);
+	for(int i = 0; i < 4;i++){
+		System.out.print("Semana " + (i+1) + ": ");
+		for(int j = 0;j < 5 ; j++){
+			System.out.print(matrix[i][j] + "\t");
+		}//end for(j)
+	endl(1);
+	}//end for(i)
+}//printMatrix
+
 }//class
 
 
 /* El Consejo Nacional Electoral, organismo  encargado  de realizar los procesos
-   electorales a nivel nacional, requiere conocer cierta información estadística
-   del mes de mayo, respecto  al  número  de  inscritos. Dicho  organismo  desea
+   electorales a nivel nacional, requiere conocer cierta informaciÃ³n estadÃ­stica
+   del mes de mayo, respecto  al  nÃºmero  de  inscritos. Dicho  organismo  desea
    cuantificar:
-   => El número de personas inscritas en el mes
-   => El número de personas inscritas cada una de las semanas del mes.
-   => Y por último desea determinar cuál de los días de inscripción resulta  más
+   => El nÃºmero de personas inscritas en el mes
+   => El nÃºmero de personas inscritas cada una de las semanas del mes.
+   => Y por Ãºltimo desea determinar cuÃ¡l de los dÃ­as de inscripciÃ³n resulta  mÃ¡s
       efectivo, es decir, reporta mayor cantidad de inscritos
    => Los datos suministrados son:
 
-     	LUNES	MARTES	MIÉRCOLES	JUEVES	VIERNES
+     	LUNES	MARTES	MIÃ‰RCOLES	JUEVES	VIERNES
    1	2000	4000		3000	 2500	 5000
    2	2000	3000		2000	 2500	 4500
    3	1200	5000		3200	 4000	 3000
